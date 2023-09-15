@@ -84,8 +84,8 @@ def get_sunlight_nodes_in_node(in_node):
 
 def refresh():
     refresh_paths = get_sunlight_nodes_in_project()
-    if refresh_paths:
-        global sunlight_paths
+    global sunlight_paths
+    if refresh_paths:        
         sunlight_paths = refresh_paths
     else:
         sunlight_paths=[]
@@ -96,16 +96,15 @@ def refresh():
         sunlight_combobox.current(0)
 
 def apply_kelvin():
-    kelvin_as_srgb = kelvin_table[kelvin.get()]
-    kelvin_as_decimal = list(srgb_to_decimal(kelvin_as_srgb))
+    kelvin_as_srgb = kelvin_table[kelvin.get()]    
+    kelvin_as_decimal = srgb_to_decimal(kelvin_as_srgb)
     set_sunlight_node_in_project(kelvin_as_decimal)
 
 def srgb_to_decimal(sRGB):
     srgb_list = []
     for i in range(len(sRGB)):
         srgb_list.append(pow(sRGB[i]/255,2.2))
-    srgb_tuple = tuple(srgb_list)
-    return srgb_tuple
+    return srgb_list
 
 def set_sunlight_node_in_project(kelvin_decimal):
     index = sunlight_combobox.current()
@@ -113,10 +112,11 @@ def set_sunlight_node_in_project(kelvin_decimal):
         popup_warning("TclError","No Sunlight nodes in project. \nAdd Sunlight node and refresh list. \n")
         return
     try:
-        node = tg.node_by_path(sunlight_paths[index]) 
-        node.set_param('colour',kelvin_decimal)
-    except AttributeError as e:
-        popup_warning("Terragen Warning","Selected Sunlight node no longer in project. \nRefresh list. \n")
+        node = tg.node_by_path(sunlight_paths[index])
+        if node:
+            node.set_param('colour',kelvin_decimal)
+        else:
+            popup_warning("Terragen Warning","Selected Sunlight node no longer in project. \nRefresh list. \n")
     except ConnectionError as e:
         popup_warning("Terragen RPC connection error",str(e))
     except TimeoutError as e:
