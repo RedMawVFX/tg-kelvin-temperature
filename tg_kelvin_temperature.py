@@ -96,8 +96,8 @@ def refresh():
         sunlight_combobox.current(0)
 
 def apply_kelvin():
-    kelvin_as_srgb = kelvin_table[kelvin.get()]    
-    kelvin_as_decimal = srgb_to_decimal(kelvin_as_srgb)
+    kelvin_as_srgb = kelvin_table[kelvin.get()] # returns tuple from dictionary
+    kelvin_as_decimal = srgb_to_decimal(kelvin_as_srgb) # decimal as a list
     set_sunlight_node_in_project(kelvin_as_decimal)
 
 def srgb_to_decimal(sRGB):
