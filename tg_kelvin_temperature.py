@@ -104,7 +104,8 @@ def srgb_to_decimal(sRGB):
     srgb_list = []
     for i in range(len(sRGB)):
         srgb_list.append(pow(sRGB[i]/255,2.2))
-    return srgb_list
+    srgb_list_to_tuple = tuple(srgb_list)
+    return srgb_list_to_tuple
 
 def set_sunlight_node_in_project(kelvin_decimal):
     index = sunlight_combobox.current()
