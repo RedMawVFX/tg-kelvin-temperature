@@ -41,7 +41,7 @@ Online documentation for Terragen RPC<br>
 https://planetside.co.uk/docs/terragen-rpc/
 
 Blog posts on using Terragen RPC<br>
-link to Kelvin Temperature Blog post here<br>
+https://planetside.co.uk/blog/script-it-yourself-kelvin-sunlight-colour-with-terragen-rpc/ <br>
 https://planetside.co.uk/blog/hello-rpc-part-1-scripting-for-terragen/ <br>
 https://planetside.co.uk/blog/hello-rpc-part-2-error-handling/
 
