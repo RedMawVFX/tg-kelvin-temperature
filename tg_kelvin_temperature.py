@@ -82,14 +82,9 @@ def get_sunlight_nodes_in_node(in_node):
         popup_warning("Terragen RPC API error",traceback.format_exc())
         return([])
 
-def refresh():
-    refresh_paths = get_sunlight_nodes_in_project()
+def refresh():    
     global sunlight_paths
-    if refresh_paths:        
-        sunlight_paths = refresh_paths
-    else:
-        sunlight_paths=[]
-
+    sunlight_paths = get_sunlight_nodes_in_project()
     sunlight_combobox.set('') # clears the selected value, ensures nothing is displayed
     sunlight_combobox["values"] = sunlight_paths
     if len(sunlight_paths) > 0:
