@@ -1,4 +1,9 @@
 # tg-kelvin-temperature
+&#9888; This Python script is now part of the <b>redmaw-tg-toolkit</b> repository, and will no longer be developed as a stand-alone script in this repository.
+
+Click [here](https://github.com/RedMawVFX/redmaw-tg-toolkit) for the redmaw-tg-toolkit repository.<br> 
+Click [here](https://github.com/RedMawVFX/redmaw-tg-toolkit/tree/main/scripts/tg-kelvin-temperature) to go directly to the <i>tg-kelvin-temperature</i> folder in the redmaw-tg-toolkit.
+<hr>
 A fully functional EXAMPLE Python script implementing Terragen 4 Professional’s remote procedure call (RPC) feature to allow the user to apply a kelvin temperature value to a selected Sunlight node in the active Terragen project.
 
 This script incorporates Andreas Siess’s “RGB to Color Temperature” Python table.  See link below.
